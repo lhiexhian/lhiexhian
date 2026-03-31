@@ -6,7 +6,18 @@
     box-sizing: border-box;
     cursor: var(--def-cursor);
 }
-
+.app-btn {
+    position: fixed;
+    bottom: 65px;
+    right: 65px;
+    width: 65px;
+    height: 65px;
+    background-color: var(--base);
+    border: 3px solid var(--label);
+    border-radius: 100%;
+    box-shadow: 5px 5px 0 0 var(--label);
+    z-index: 9999;
+}
 a {
     cursor: var(--pointer);
     display: flex;
@@ -74,6 +85,7 @@ section {
     min-height: 100%;
     height: 500px;
     width: 100%;
+    padding: 20px 0;
 }
 a {
     text-decoration: none;
@@ -300,19 +312,22 @@ a {
         background-color: rgba(230, 150, 230, .4);
         font-size: .9em;
         font-weight: 500;
+        color: var(--default);
     }
-
     #red {
-        background-color: rgba(230, 150, 150, .4);
+        background-color: var(--red);
     }
     #blue {
-        background-color: rgba(150, 150, 230, .4);
+        background-color: var(--blue);
     }
     #green {
-        background-color: rgba(150, 230, 150, .4);
+        background-color: var(--green);
     }
     #yellow {
-        background-color: rgba(230, 230, 150, .4);
+        background-color: var(--contrast);
+        * {
+            color: var(--blue);
+        }
     }
 }
 .herobtn {
@@ -1022,6 +1037,7 @@ footer .footer-box {
     box-sizing: border-box;
     transition: .3s ease-in-out;
     cursor: var(--pointer);
+    flex: 1 1;
 
     * {
         cursor: var(--pointer);
@@ -1268,13 +1284,14 @@ footer .footer-box {
 
 /* Timeline Styling */
 .timeline-section {
-    width: 100%;
+    width: 90%;
     height: fit-content;
+    gap: 20px;
 }
 
 .timeline-item {
     display: flex;
-    gap: 20px;
+    gap: 10px;
     margin-bottom: 20px;
     align-items: center;
 }
@@ -1286,8 +1303,8 @@ footer .footer-box {
     font-family: 'Courier New', monospace;
     font-weight: bold;
     border: 3px solid var(--label);
-
-
+    width: calc(40% - 20px);
+    text-align: center;
 }
 .time-box.red {
     background-color: var(--red);
@@ -1307,6 +1324,7 @@ footer .footer-box {
     border: 3px solid var(--label);
     background: var(--default);
     box-shadow: 5px 5px 0 var(--label);
+
 }
 
 .intro-about {
@@ -1393,17 +1411,6 @@ footer .footer-box {
     20% {background-color: transparent;}
     21% {background-color: var(--label);}
 }
-/* Responsive Mobile */
-@media (max-width: 768px) {
-    .about-hero {
-        flex-direction: column;
-        align-items: center;
-    }
-    .profile-column, .bio-column {
-        width: 100%;
-    }
-}
-
 @media only screen and (max-width: 480px) {
     .dots {
         gap: 5px;
@@ -1438,6 +1445,14 @@ footer .footer-box {
     .hero {
         width: 100%;
         height: fit-content;
+    }
+    .about-hero {
+        flex-direction: column;
+        align-items: center;
+        width: calc(100% - 20px);
+    }
+    .profile-column, .bio-column {
+        width: 100%;
     }
     .icon-box a span {
         display: none;
@@ -1582,5 +1597,18 @@ footer .footer-box {
             width: 100%;
             justify-content: center;
         }
+    }
+    .content-box {
+        width: 100%;
+
+        * {
+            font-size: .8rem;
+        }
+    }
+    .timeline-item {
+        flex-direction: column;
+    }
+    .time-box {
+        width: fit-content;
     }
 }
