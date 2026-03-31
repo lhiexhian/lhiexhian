@@ -12,7 +12,7 @@ a {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 100%;
+    width: fit-content;
 
 }
 #Capa_1 {
@@ -631,7 +631,7 @@ a {
         .btn {
             background-color: var(--highlight);
             * {
-                font-size: 2em;
+                font-size: 1.2em;
             }
         }
     }
@@ -1060,10 +1060,12 @@ footer .footer-box {
     flex-direction: column;
     justify-content: first baseline;
     gap: 20px;
+    width: 100%;
 }
 
 .social-links {
     display: flex;
+    flex-direction: row;
     gap: 15px;
     margin-top: 20px;
 }
@@ -1075,7 +1077,6 @@ footer .footer-box {
     flex-direction: row;
     gap: 10px;
     width: fit-content;
-    display: flex;
 
     svg {
         width: auto;
@@ -1279,14 +1280,27 @@ footer .footer-box {
 }
 
 .time-box {
-    background: var(--label);
-    color: var(--default);
+    background: var(--base);
+    color: var(--label);
     padding: 10px 20px;
     font-family: 'Courier New', monospace;
     font-weight: bold;
     border: 3px solid var(--label);
-}
 
+
+}
+.time-box.red {
+    background-color: var(--red);
+}
+.blue {
+    background-color: var(--blue);
+}
+.yellow {
+    background-color: var(--contrast);
+}
+.green {
+    background-color: var(--green);
+}
 .timeline-item .content-box {
     flex: 1;
     padding: 15px;
@@ -1295,6 +1309,90 @@ footer .footer-box {
     box-shadow: 5px 5px 0 var(--label);
 }
 
+.intro-about {
+    display: flex;
+    flex-direction: row;
+    height: 200px;
+    width: 80%;
+    padding: 30px 0;
+
+    .type {
+        width: 5px;
+        height: 100px;
+        background-color: var(--label);
+        animation: type 1s infinite;
+    }
+    * {
+        font-size: 2em;
+    }
+    .title-box {
+        border: solid var(--label);
+        border-width: 2px;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        width: 60%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    .title-box::before {
+        content: '';
+        display: block;
+        background: var(--default);
+        width: 10px;
+        height: 10px;
+        border: 5px solid var(--label);
+        box-shadow: 2px 2px 0 0 var(--label);
+        position: absolute;
+        top: -10px;
+        left: -10px;
+    }
+    h2::before {
+        content: '';
+        display: block;
+        background: var(--default);
+        width: 10px;
+        height: 10px;
+        border: 5px solid var(--label);
+        box-shadow: 2px 2px 0 0 var(--label);
+        position: absolute;
+        top: -10px;
+        right: -10px;
+    }
+    .title-box::after {
+        content: '';
+        display: block;
+        background: var(--default);
+        width: 10px;
+        height: 10px;
+        border: 5px solid var(--label);
+        box-shadow: 2px 2px 0 0 var(--label);
+        position: absolute;
+        bottom: -10px;
+        right: -10px;
+    }
+    h2::after {
+        content: '';
+        display: block;
+        background: var(--default);
+        width: 10px;
+        height: 10px;
+        border: 5px solid var(--label);
+        box-shadow: 2px 2px 0 0 var(--label);
+        position: absolute;
+        bottom: -10px;
+        left: -10px;
+    }
+}
+
+@keyframes type {
+    0% {background-color: transparent;}
+    20% {background-color: transparent;}
+    21% {background-color: var(--label);}
+}
 /* Responsive Mobile */
 @media (max-width: 768px) {
     .about-hero {
@@ -1307,6 +1405,13 @@ footer .footer-box {
 }
 
 @media only screen and (max-width: 480px) {
+    .dots {
+        gap: 5px;
+    }
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
     header {
         left: 10px;
         right: 10px;
@@ -1461,10 +1566,21 @@ footer .footer-box {
         }
     }
     .contact-container {
+        width: 90%;
         flex-direction: column;
+        padding: 20px;
     }
     .cta-text {
         text-align: left;
         font-size: 3rem;
+    }
+    .social-links {
+        flex-direction: column;
+        flex: 1 1;
+
+        .social-btn {
+            width: 100%;
+            justify-content: center;
+        }
     }
 }
